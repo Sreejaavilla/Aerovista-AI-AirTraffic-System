@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Aerovista Solution</title>
+<style>
+ body {font-family: Arial, sans-serif; margin:0; padding:0; background:#f4f4f4;}
+ header {background:#003366; color:#fff; padding:15px; text-align:center;}
+ nav {background:#0055a5; padding:10px; text-align:center;}
+ nav a {color:#fff; margin:0 15px; text-decoration:none; font-weight:bold;}
+ section {padding:20px; display:none;}
+ .active {display:block;}
+ .card {background:#fff; padding:20px; margin:10px 0; border-radius:8px; box-shadow:0 2px 5px rgba(0,0,0,0.1);} 
+</style>
+<script>
+ function showPage(pageId) {
+   document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
+   document.getElementById(pageId).classList.add('active');
+ }
+ window.onload = () => showPage('home');
+</script>
+</head>
+<body>
+<header>
+  <h1>Welcome to Aerovista – AI Powered Air Traffic Coordination</h1>
+</header>
+<nav>
+  <a href="#" onclick="showPage('home')">Home</a>
+  <a href="#" onclick="showPage('about')">About</a>
+  <a href="#" onclick="showPage('dashboard')">Dashboard</a>
+  <a href="#" onclick="showPage('communication')">Communication</a>
+</nav>
+<section id="home" class="active">
+  <div class="card">
+    <h2>Introduction</h2>
+    <p>Aerovista is an AI-driven solution to combat air traffic staffing shortages and ensure flight punctuality through automation, real-time coordination, and intelligent prediction.</p>
+  </div>
+</section>
+<section id="about">
+  <div class="card">
+    <h2>About Aerovista</h2>
+    <p>Aerovista revolutionizes airport operations with automated communication, staffing optimization, and predictive punctuality tracking to minimize delays. Its innovative AI coordination ensures seamless interaction between ATC, ground staff, and airline operators.</p>
+    <ul>
+      <li>AI voice-to-task conversion</li>
+      <li>Real-time staff allocation</li>
+      <li>Predictive delay alerts</li>
+      <li>Integrated operations dashboard</li>
+    </ul>
+  </div>
+</section>
+<section id="dashboard">
+  <div class="card">
+    <h2>Dashboard – Flight & Staffing Overview</h2>
+    <p><strong>Flight Status:</strong> AI101 – On Time<br/>UK505 – Delayed</p>
+    <p><strong>Staff Availability:</strong><br/>Ramp Team: 2 Available<br/>Refuel Team: 1 Available</p>
+    <p><strong>Punctuality Rate:</strong> 92% (Simulated)</p>
+  </div>
+</section>
+<section id="communication">
+  <div class="card">
+    <h2>Communication Interface</h2>
+    <p>Simulate ATC instructions and automated ground crew responses.</p>
+    <label>Enter ATC Message:</label><br/>
+    <input type="text" id="atcInput" placeholder="Cleared to land Flight AI101" style="width:80%; padding:8px;" />
+    <button onclick="simulateComm()" style="padding:8px 15px;">Send</button>
+    <div id="commLog" style="margin-top:20px;"></div>
+  </div>
+</section>
+<script>
+ function simulateComm(){
+   const input=document.getElementById('atcInput').value;
+   const log=document.getElementById('commLog');
+   log.innerHTML += `<p><strong>ATC:</strong> ${input}</p>`;
+   log.innerHTML += `<p><strong>System:</strong> Task created and assigned to ground staff.</p>`;
+ }
+</script>
+</body>
+</html>
